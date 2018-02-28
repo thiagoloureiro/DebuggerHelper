@@ -1,2 +1,2 @@
 # DebuggerHelper
-Debugger Attach Helper with VisualStudio and External Components
+Debugger Attach Helper for VisualStudio and External Components
