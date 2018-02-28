@@ -49,12 +49,12 @@ namespace DebuggerHelper
             System.Threading.Thread.Sleep(3000);
         }
 
-        private static Process GetProcess(int processID)
+        private static Process GetProcess(int processId)
         {
             // Visual Studio 2017 (15.0)
             var dte = (DTE)Marshal.GetActiveObject("VisualStudio.DTE.15.0");
             var processes = dte.Debugger.LocalProcesses.OfType<Process>();
-            return processes.SingleOrDefault(x => x.ProcessID == processID);
+            return processes.SingleOrDefault(x => x.ProcessID == processId);
         }
 
         private static void CreateBatFile()
