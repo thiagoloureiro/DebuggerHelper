@@ -45,7 +45,7 @@ namespace DebuggerHelper
         {
             System.Diagnostics.Process.Start("start.bat");
 
-            Console.WriteLine("Waiting to load Firefly...");
+            Console.WriteLine("Waiting to load the process...");
             System.Threading.Thread.Sleep(3000);
         }
 
