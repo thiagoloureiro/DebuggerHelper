@@ -1,6 +1,5 @@
 ﻿using EnvDTE;
 using System;
-using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
 using Process = EnvDTE.Process;
