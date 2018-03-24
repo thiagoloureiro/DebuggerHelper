@@ -12,6 +12,7 @@ namespace DebuggerHelper
         private static string _path;
         private static string _appName;
         private static string _executable;
+        private static System.Diagnostics.Process _process;
 
         private static void Main(string[] args)
         {
@@ -20,11 +21,12 @@ namespace DebuggerHelper
             _executable = args[2];
 
             CreateBatFile();
-            StartProcess();
+            _process = StartProcess();
             AttachProcess();
 
             Console.WriteLine("Press <ENTER> to exit Debugger");
             Console.ReadKey();
+            _process.Kill();
         }
 
         private static void AttachProcess()
@@ -41,12 +43,13 @@ namespace DebuggerHelper
             MessageFilter.Revoke();
         }
 
-        private static void StartProcess()
+        private static System.Diagnostics.Process StartProcess()
         {
-            System.Diagnostics.Process.Start("start.bat");
+            var proc = System.Diagnostics.Process.Start("start.bat");
 
             Console.WriteLine("Waiting to load the process...");
             System.Threading.Thread.Sleep(3000);
+            return proc;
         }
 
         private static Process GetProcess(int processId)
