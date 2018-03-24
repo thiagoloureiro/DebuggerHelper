@@ -20,7 +20,6 @@ namespace DebuggerHelper
             _appName = args[1];
             _executable = args[2];
 
-            CreateBatFile();
             _process = StartProcess();
             AttachProcess();
 
@@ -58,15 +57,6 @@ namespace DebuggerHelper
             var dte = (DTE)Marshal.GetActiveObject("VisualStudio.DTE.15.0");
             var processes = dte.Debugger.LocalProcesses.OfType<Process>();
             return processes.SingleOrDefault(x => x.ProcessID == processId);
-        }
-
-        private static void CreateBatFile()
-        {
-            using (var writer = new StreamWriter("start.bat"))
-            {
-                writer.WriteLine($"cd {_path}");
-                writer.WriteLine($"{_path}\\{_executable} -c");
-            }
         }
     }
 }
