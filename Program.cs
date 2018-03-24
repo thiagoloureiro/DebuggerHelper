@@ -38,7 +38,7 @@ namespace DebuggerHelper
             if (process != null)
             {
                 process.Attach();
-                Console.WriteLine("Attached to {0}", process.Name);
+                Console.WriteLine($"Attached to {process.Name}");
             }
             MessageFilter.Revoke();
         }
